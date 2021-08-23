@@ -1,0 +1,116 @@
+* {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 25px;
+    letter-spacing: -0.8px;
+    word-spacing: -1px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    color: white;
+    text-align: center;
+}
+
+
+.mainframe {
+    position: fixed;
+    background-color: rgba( 0,  0,   0, 0.25 );
+    left: 10%;
+    top: 10%;
+    width: 80%;
+    height: 80%;
+}
+
+.vl {
+    position: relative;
+    height: auto;
+    width: 1px;
+    margin-left: 2%;
+    top: 0%;
+    background-color: ghostwhite;
+}
+
+.ldoub{
+    flex-direction: column;
+    width: 100%;
+    margin-left: 1%;
+    margin-right: -1%;
+}
+
+
+.innerp {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    margin-left: 1%;
+    margin-right: -1%;
+}
+
+.inneru {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 1%;
+    margin-right: -1%;
+}
+
+.label{
+    float: left;
+}
+
+.labelr{
+    float: right;
+    margin-left: 5%;
+}
+
+
+.labelt{
+    float: left;
+    margin-left: 5%;
+}
+
+.personselector{
+    color: black;
+    float: right;
+    width: 50%;
+    height: auto;
+}
+
+.slider{ 
+  margin: 5% 0 0 15%; 
+  width: 75%;
+}
+
+.imagecanvas {
+    margin-left: 2.5%;
+    width: auto;
+}
+
+.verticalstack{
+    margin-left: 1.5%;
+}
+
+.flexboxer {
+    display: flex;
+}
+
+.cbox{
+    margin-top: 2%;
+    border: 1px solid;
+    width: 5vh;
+    height: 5vh;
+}
+
+.sstack{
+    display: flex;
+    flex-direction: row;
+}
+
+.nselect{
+    width: 25%;
+    color: black;
+}
+input[type=checkbox] {
+  transform: scale(2.5);
+}
