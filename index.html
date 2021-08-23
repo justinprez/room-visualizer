@@ -1,0 +1,153 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="data_parsing.js"></script>
+    <script src="canvas.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link type="text/css" rel="stylesheet" href="style.css" >
+    <link type="text/css" rel="stylesheet" href="vidattr.css" >
+</head>
+
+
+<body>
+    <div class="video-background">
+        <div class="video-foreground">
+            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/PzVA6gYtPc0?rel=0&amp;controls=0&amp;showinfo=0&amp;start=340 &mute=1&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="mainframe">
+        <hr>
+            <h1><b>Roomer Visualizer</b></h1>
+        <hr>
+            <div class="flexboxer">
+                <div class="verticalstack">
+                    <canvas id = "ccvns" class = "imagecanvas"></canvas>
+                    <hr>
+                    <div class="fupdate">
+                        <div class="sstack">
+                            <div class="cbox"style="background-color:red"></div>
+                            <div class="labelr" id="cbox1">a</div>
+                        </div>
+                        <div class="sstack">
+                            <div class="cbox"style="background-color:yellow"></div>
+                            <div class="labelr" id="cbox2">b</div>
+                        </div>
+                        <div class="sstack">
+                            <div class="cbox"style="background-color:springgreen"></div>
+                            <div class="labelr" id="cbox3">c</div>
+                        </div>
+                        <div class="sstack">
+                            <div class="cbox"style="background-color:blue"></div>
+                            <div class="labelr" id="cbox4">c</div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    
+                </script>
+                <script>
+                    
+                </script>
+                <div class="vl"></div>
+                    <div class="innerp">
+                        Data display Sample:
+                        <hr>
+                            <div class = "ldoub">
+                                <div class="label">Timespan:</div>
+                                <div class ="ldoub">
+                                <input onchange="window.UpdateData();" id="time_in" type="number" class="nselect"  value = "0" min = "0" max="365" > - 
+                                <input onchange="window.UpdateData();" id="time_out" type="number" class="nselect" value = "365" min = "0" max="365"></div>
+                            </div>
+                        <hr>
+                            <div class = "ldoub">
+                                <div class="label">Person:</div>
+                                <select class = "personselector" id = "person_select" onchange="window.UpdateData();">
+                                  <option class="personselector" value="1">Dr.Fang</option>
+                                  <option class="personselector" value="2">Justin</option>
+                                  <option class="personselector" value="3">Alex</option>
+                                </select>
+                            </div>
+                        <hr>
+                            <div class = "ldoub">
+                                <div class="label">Frequency:</div>
+                                <select class = "personselector" id="freqselect" onchange="window.UpdateData();">
+                                  <option class="personselector" value="d" >Daily</option>
+                                  <option class="personselector" value="w" >Weekly</option>
+                                  <option class="personselector" value="m" >Monthly</option>
+                                </select>
+                                <script>
+                                    $( function(){
+                                        let TruthTable = {
+                                            d: [ "15+", "11-14", "4-10", "0-3" ],
+                                            w: [ "4+", "3", "2", "1" ],
+                                            m: [ "6+", "4-5", "2-3", "<=1"]
+                                        }
+                                        window.UpdateData = function( Value ){
+                                            if ( Value === undefined ) {
+                                                Value = $( "#freqselect" ).val();
+                                            }
+                                            window.reset_room();
+                                            let data = TruthTable[ Value ];
+                                            $( "#cbox1" ).html( data[ 0 ] )
+                                            $( "#cbox2" ).html( data[ 1 ] )
+                                            $( "#cbox3" ).html( data[ 2 ] )
+                                            $( "#cbox4" ).html( data[ 3 ] )
+                                            
+                                            parse_data_request();
+                                        }
+                                        $( function(){
+                                            window.UpdateData()
+                                        })}
+                                     )
+                                </script>
+                            </div>
+                        <hr>
+                    </div>
+                <div class="vl"></div>
+                    <div class="inneru">
+                        Time refinement
+                        <hr>
+                        <div class="inputtimebox">
+                            <div class="sstack">
+                                <div class="labelt">
+                                    <input type="checkbox" checked="true" id = "t1" onclick="window.UpdateData();"> Early Morning ( 5:00AM - 9:59AM )
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="sstack">
+                                <div class="labelt">
+                                    <input type="checkbox" checked="true" id = "t2" onclick="window.UpdateData();"> Late Morning ( 10:00AM - 11:59AM )
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="sstack">
+                                <div class="labelt">
+                                    <input type="checkbox" checked="true" id = "t3" onclick="window.UpdateData();">  Early Afternoon ( 12:00PM - 3:59PM )
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="sstack">
+                                <div class="labelt">
+                                    <input type="checkbox" checked="true" id = "t4" onclick="window.UpdateData();">  Late Afternoon ( 4:00PM - 5:59PM )
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="sstack">
+                                <div class="labelt">
+                                    <input type="checkbox" checked="true" id = "t5" onclick="window.UpdateData();">  Evening ( 6:00PM - 8:59PM )
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="sstack">
+                                <div class="labelt">
+                                    <input type="checkbox" checked="true" id = "t6" onclick="window.UpdateData();">  Night ( 9:00PM - 4:59AM )
+                                </div>
+                            </div>
+                            <hr>
+
+                        </div>
+                    </div>
+                <div class="vl"></div>
+            </div>
+        <hr>
+    </div>
+</body>
